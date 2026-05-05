@@ -1,0 +1,13 @@
+[package]
+name = "vlmcsd-server"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "vlmcsd"
+path = "src/main.rs"
+
+[dependencies]
+vlmcsd-network = { path = "../vlmcsd-network" }
+vlmcsd-kmsdata = { path = "../vlmcsd-kmsdata" }
+vlmcsd-protocol = { path = "../vlmcsd-protocol" }

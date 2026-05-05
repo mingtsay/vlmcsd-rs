@@ -17,12 +17,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "vlmcsd-network"
+version = "0.1.0"
+dependencies = [
+ "vlmcsd-kmsdata",
+ "vlmcsd-rpc",
+]
+
+[[package]]
 name = "vlmcsd-protocol"
 version = "0.1.0"
 dependencies = [
  "vlmcsd-crypto",
  "vlmcsd-kmsdata",
  "vlmcsd-types",
+]
+
+[[package]]
+name = "vlmcsd-rpc"
+version = "0.1.0"
+dependencies = [
+ "vlmcsd-kmsdata",
+ "vlmcsd-protocol",
+ "vlmcsd-types",
+]
+
+[[package]]
+name = "vlmcsd-server"
+version = "0.1.0"
+dependencies = [
+ "vlmcsd-kmsdata",
+ "vlmcsd-network",
+ "vlmcsd-protocol",
 ]
 
 [[package]]

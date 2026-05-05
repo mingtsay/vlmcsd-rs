@@ -1,0 +1,9 @@
+[package]
+name = "vlmcsd-rpc"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+vlmcsd-types = { path = "../vlmcsd-types" }
+vlmcsd-protocol = { path = "../vlmcsd-protocol" }
+vlmcsd-kmsdata = { path = "../vlmcsd-kmsdata" }

@@ -4,6 +4,9 @@ members = [
     "crates/vlmcsd-crypto",
     "crates/vlmcsd-kmsdata",
     "crates/vlmcsd-protocol",
+    "crates/vlmcsd-rpc",
+    "crates/vlmcsd-network",
+    "crates/vlmcsd-server",
 ]
 resolver = "3"
 
