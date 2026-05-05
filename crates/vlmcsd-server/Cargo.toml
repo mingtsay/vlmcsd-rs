@@ -11,3 +11,6 @@ path = "src/main.rs"
 vlmcsd-network = { path = "../vlmcsd-network" }
 vlmcsd-kmsdata = { path = "../vlmcsd-kmsdata" }
 vlmcsd-protocol = { path = "../vlmcsd-protocol" }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"

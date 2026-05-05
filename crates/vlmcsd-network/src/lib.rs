@@ -48,6 +48,7 @@ pub fn run_server_with_shutdown(
 
         match listener.accept() {
             Ok((stream, _)) => {
+                let _ = stream.set_nonblocking(false);
                 let kms = Arc::clone(&kms_data);
                 let timeout = config.timeout;
                 thread::spawn(move || {

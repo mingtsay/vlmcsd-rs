@@ -525,6 +525,7 @@ dependencies = [
 name = "vlmcsd-server"
 version = "0.1.0"
 dependencies = [
+ "libc",
  "vlmcsd-kmsdata",
  "vlmcsd-network",
  "vlmcsd-protocol",
