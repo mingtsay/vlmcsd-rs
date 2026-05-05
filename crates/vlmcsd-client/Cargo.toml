@@ -1,0 +1,16 @@
+[package]
+name = "vlmcsd-client"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "vlmcs"
+path = "src/main.rs"
+
+[dependencies]
+vlmcsd-types = { path = "../vlmcsd-types" }
+vlmcsd-crypto = { path = "../vlmcsd-crypto" }
+vlmcsd-kmsdata = { path = "../vlmcsd-kmsdata" }
+vlmcsd-protocol = { path = "../vlmcsd-protocol" }
+vlmcsd-rpc = { path = "../vlmcsd-rpc" }

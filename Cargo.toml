@@ -7,6 +7,8 @@ members = [
     "crates/vlmcsd-rpc",
     "crates/vlmcsd-network",
     "crates/vlmcsd-server",
+    "crates/vlmcsd-client",
+    "crates/vlmcsd-ffi",
 ]
 resolver = "3"
 

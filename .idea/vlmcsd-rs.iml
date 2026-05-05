@@ -2,7 +2,15 @@
 <module type="EMPTY_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-client/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-crypto/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-ffi/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-kmsdata/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-network/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-network/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-protocol/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-rpc/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-server/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/vlmcsd-types/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />

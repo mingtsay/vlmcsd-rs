@@ -1,8 +1,9 @@
 use std::io;
 use std::net::{TcpListener, TcpStream};
+use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::thread;
 use std::time::Duration;
-use std::sync::Arc;
 
 use vlmcsd_kmsdata::KmsData;
 use vlmcsd_rpc::rpc_server;
@@ -22,25 +23,45 @@ impl Default for ServerConfig {
 }
 
 pub fn run_server(config: &ServerConfig, kms_data: Arc<KmsData>) -> io::Result<()> {
+    run_server_with_shutdown(config, kms_data, None)
+}
+
+pub fn run_server_with_shutdown(
+    config: &ServerConfig,
+    kms_data: Arc<KmsData>,
+    shutdown: Option<Arc<AtomicBool>>,
+) -> io::Result<()> {
     let listener = TcpListener::bind(&config.listen_addr)?;
     eprintln!("Listening on {}", config.listen_addr);
 
-    for stream in listener.incoming() {
-        match stream {
-            Ok(stream) => {
+    if shutdown.is_some() {
+        listener.set_nonblocking(true)?;
+    }
+
+    loop {
+        if let Some(ref flag) = shutdown {
+            if flag.load(Ordering::Relaxed) {
+                eprintln!("Shutting down");
+                return Ok(());
+            }
+        }
+
+        match listener.accept() {
+            Ok((stream, _)) => {
                 let kms = Arc::clone(&kms_data);
                 let timeout = config.timeout;
                 thread::spawn(move || {
                     handle_client(stream, &kms, timeout);
                 });
             }
+            Err(ref e) if e.kind() == io::ErrorKind::WouldBlock => {
+                thread::sleep(Duration::from_millis(100));
+            }
             Err(e) => {
                 eprintln!("Accept error: {}", e);
             }
         }
     }
-
-    Ok(())
 }
 
 fn handle_client(mut stream: TcpStream, kms_data: &KmsData, timeout: Duration) {

@@ -1,0 +1,19 @@
+[package]
+name = "vlmcsd-ffi"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "vlmcsd"
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+vlmcsd-types = { path = "../vlmcsd-types" }
+vlmcsd-kmsdata = { path = "../vlmcsd-kmsdata" }
+vlmcsd-protocol = { path = "../vlmcsd-protocol" }
+vlmcsd-rpc = { path = "../vlmcsd-rpc" }
+vlmcsd-network = { path = "../vlmcsd-network" }
+
+[build-dependencies]
+cbindgen = "0.28"

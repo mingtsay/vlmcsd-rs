@@ -6,3 +6,7 @@ edition.workspace = true
 [dependencies]
 vlmcsd-rpc = { path = "../vlmcsd-rpc" }
 vlmcsd-kmsdata = { path = "../vlmcsd-kmsdata" }
+
+[dev-dependencies]
+vlmcsd-types = { path = "../vlmcsd-types" }
+vlmcsd-protocol = { path = "../vlmcsd-protocol" }
