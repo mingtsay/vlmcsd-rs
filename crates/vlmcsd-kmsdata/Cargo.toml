@@ -1,0 +1,7 @@
+[package]
+name = "vlmcsd-kmsdata"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+vlmcsd-types = { path = "../vlmcsd-types" }

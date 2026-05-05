@@ -10,5 +10,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "vlmcsd-kmsdata"
+version = "0.1.0"
+dependencies = [
+ "vlmcsd-types",
+]
+
+[[package]]
+name = "vlmcsd-protocol"
+version = "0.1.0"
+dependencies = [
+ "vlmcsd-crypto",
+ "vlmcsd-kmsdata",
+ "vlmcsd-types",
+]
+
+[[package]]
 name = "vlmcsd-types"
 version = "0.1.0"
